@@ -1,0 +1,58 @@
+{% for adherent in adh %}
+    <!-- Modal Update (Permet de modifier les données de l'adhérent selectionné) -->
+    <div class="modal fade" id="modalUpdate{{ adherent[0] }}" tabindex="-1" aria-labelledby="modalUpdateLabel"
+         aria-hidden="true" xmlns="http://www.w3.org/1999/html">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalUpdateLabel">Fiche adhérent N°{{ adherent[0] }}</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form action="{{ url_for ('update') }}" method="post">
+                        <input type="text" name="matricule" id="matricule" hidden value="{{ adherent[0] }}">
+                        <label for="inNom"><b>Nom : </b></label>
+                        <input type="text" id="nom" name="nom" value="{{ adherent[1] }}" required>
+                        <br>
+                        <label for="inPrenom"><b>Prénom : </b></label>
+                        <input type="text" id="prenom" name="prenom" value="{{ adherent[2] }}" required>
+                        <br>
+                        <label for="inVille"><b>Ville : </b></label>
+                        <input type="text" id="ville" name="ville" value="{{ adherent[3] }}" required>
+                        <br>
+                        <label for="inCp"><b>Code postal : </b></label>
+                        <input type="text" id="cp" name="cp" value="{{ adherent[4] }}" required>
+                        <br>
+                        <label for="inStatus"><b>Status : </b></label>
+                        <select name="type" id="type">
+                            {% for t in type %}
+                                <option {% if adherent[5] == t[0] %}selected{% endif %} value="{{ t[0] }}">
+                                    {{ t[1] }}
+                                </option>
+                            {% endfor %}
+                        </select>
+                        <br>
+                        <label for="inNiveau"><b>Niveau : </b></label>
+                        <select name="niveau" id="niveau">
+                            {% for n in nivo %}
+                                <option
+                                        {% if adherent[7] == n[0] %}
+                                            selected
+                                        {% endif %} value="{{ n[0] }}">
+                                    {{ n[1] }}
+                                </option>
+                            {% endfor %}
+                        </select>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-secondary">Enregistrer les
+                                modifications
+                            </button>
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+{% endfor %}

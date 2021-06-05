@@ -1,0 +1,41 @@
+{% for adherent in adh %}
+    <!-- Modal View (Affiche les données de l'adhérent selectionné -->
+    <div class="modal fade" id="modalView{{ adherent[0] }}" tabindex="-1" aria-labelledby="modalViewLabel"
+         aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalViewLabel">Fiche adhérent N°{{ adherent[0] }}</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="container">
+                        <label for="inNom"><b>Nom : </b></label>
+                        <input type="text" id="inNom" value="{{ adherent[1] }}" disabled>
+                        <br>
+                        <label for="inPrenom"><b>Prénom : </b></label>
+                        <input type="text" id="inPrenom" value="{{ adherent[2] }}" disabled>
+                        <br>
+                        <label for="inVille"><b>Ville : </b></label>
+                        <input type="text" id="inVille" value="{{ adherent[3] }}" disabled>
+                        <br>
+                        <label for="inCp"><b>Code postal : </b></label>
+                        <input type="text" id="inCp" value="{{ adherent[4] }}" disabled>
+                        <br>
+                        <label for="inStatus"><b>Status : </b></label>
+                        <input type="text" id="inStatus" value="{{ adherent[7] }}" disabled>
+                        <br>
+                        <label for="inNiveau"><b>Niveau : </b></label>
+                        <input type="text" id="inNiveau" value="{{ adherent[8] }}" disabled>
+                        <br>
+                        <label for="inLicence"><b>Mont de la licence : </b></label>
+                        <input type="text" id="inLicence" value="{{ adherent[9] }}" disabled>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endfor %}

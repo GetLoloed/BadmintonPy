@@ -1,0 +1,18 @@
+<nav class="navbar navbar-dark navbar-expand-md bg-dark justify-content-center">
+    <a href="/" class="navbar-brand d-flex w-50 mr-auto">La maison des ligues</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsingNavbar3">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="navbar-collapse collapse w-100" id="collapsingNavbar3">
+        <ul>
+        </ul>
+        <ul class="nav navbar-nav ml-auto w-100 justify-content-end">
+            <li class="nav-item">
+                {% if session['id'] %}
+                    <a class="nav-link disabled" href="">Connecté en tant qu'{{ session['login'] }}</a>
+                    <a class="nav-link" href="{{ url_for('logout') }}">Deconnexion</a>
+                {% endif %}
+            </li>
+        </ul>
+    </div>
+</nav>

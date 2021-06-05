@@ -1,0 +1,35 @@
+{% extends 'layouts/base.html' %}
+
+{% block content %}
+    <body>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+                <div class="card card-signin my-5">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">Espace de connexion</h5>
+                        <form class="form-signin" action="{{ url_for('auth') }}" method="post">
+                            <div class="form-label-group">
+                                <input type="text" name="login" id="login" class="form-control"
+                                       placeholder="Identifiant"
+                                       required autofocus>
+                                <label for="login">Identifiant</label>
+                            </div>
+
+                            <div class="form-label-group">
+                                <input type="password" name="mdp" id="mdp" class="form-control"
+                                       placeholder="Mot de passe"
+                                       required>
+                                <label for="inputPassword">Mot de passe</label>
+                            </div>
+                            <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">
+                            </button>
+                            <h1>{{ session['id'] }}</h1>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </body>
+{% endblock %}
